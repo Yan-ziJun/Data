@@ -56,23 +56,40 @@ h1.title {
   background: #bbada0;
   padding: 15px 25px;
   font-size: 25px;
-  height: 25px;
-  line-height: 47px;
+  height: 35px;  /* 调整高度 */
+  line-height: 35px;  /* 调整行高与高度一致 */
   font-weight: bold;
   border-radius: 3px;
-  color: black;  /* 将颜色从 white 改为 black */
+  color: black;
   margin-top: 8px;
   text-align: center; }
   .score-container:after, .best-container:after {
     position: absolute;
     width: 100%;
-    top: 10px;
+    top: 38px;  /* 调整标签位置 */
     left: 0;
     text-transform: uppercase;
     font-size: 13px;
     line-height: 13px;
     text-align: center;
-    color: #eee4da; }
+    color: #776e65;  /* 调整标签颜色 */
+    font-weight: normal;  /* 调整标签字重 */
+  }
+  
+  /* 移动端适配 */
+  @media screen and (max-width: 520px) {
+    .score-container, .best-container {
+      margin-top: 0;
+      padding: 15px 10px;
+      min-width: 60px;  /* 移动端调整最小宽度 */
+      font-size: 20px;  /* 调整字体大小 */
+    }
+    
+    .score-container:after, .best-container:after {
+      top: 35px;  /* 调整移动端标签位置 */
+      font-size: 12px;  /* 调整移动端标签字体大小 */
+    }
+  }
   .score-container .score-addition, .best-container .score-addition {
     position: absolute;
     right: 30px;
@@ -250,7 +267,11 @@ hr {
 
 .grid-container {
   position: absolute;
-  z-index: 1; }
+  z-index: 1;
+  padding: 15px;  /* 添加内边距与游戏容器对齐 */
+  box-sizing: border-box;  /* 确保内边距计算在内 */
+  width: 100%;  /* 确保占满整个游戏容器 */
+  height: 100%; }
 
 .grid-row {
   margin-bottom: 15px; }
@@ -260,6 +281,17 @@ hr {
     content: "";
     display: block;
     clear: both; }
+
+/* 移动端适配 */
+@media screen and (max-width: 520px) {
+  .grid-container {
+    padding: 10px; }  /* 移动端使用更小的内边距 */
+
+  .grid-row {
+    margin-bottom: 10px; }
+    .grid-row:last-child {
+      margin-bottom: 0; }
+}
 
 .grid-cell {
   width: 106.25px;
