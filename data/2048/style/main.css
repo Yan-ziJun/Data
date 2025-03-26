@@ -686,30 +686,35 @@ hr {
 
   .grid-container {
     position: absolute;
-    z-index: 1; }
-
+    z-index: 1;
+    padding: 10px;  /* 调整内边距 */
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    left: 0;  /* 确保位置从左上角开始 */
+    top: 0; }
+  
   .grid-row {
-    margin-bottom: 10px; }
+    margin-bottom: 10px;  /* 调整行间距 */
+    display: flex;  /* 使用flex布局确保格子均匀分布 */
+    justify-content: space-between; }
     .grid-row:last-child {
       margin-bottom: 0; }
-    .grid-row:after {
-      content: "";
-      display: block;
-      clear: both; }
-
+  
   .grid-cell {
-    width: 57.5px;
-    height: 57.5px;
-    margin-right: 10px;
-    float: left;
+    width: calc(25% - 7.5px);  /* 调整格子宽度，考虑间距 */
+    height: 0;  /* 高度设为0 */
+    padding-bottom: calc(25% - 7.5px);  /* 使用padding-bottom创建正方形 */
+    margin-right: 0;  /* 移除右边距，使用flex布局控制间距 */
+    float: none;  /* 移除浮动 */
     border-radius: 3px;
-    background: rgba(238, 228, 218, 0.35); }
-    .grid-cell:last-child {
-      margin-right: 0; }
-
+    background: rgba(238, 228, 218, 0.35);
+    position: relative; }
+  
   .tile-container {
     position: absolute;
-    z-index: 2; }
+    z-index: 2;
+    padding: 10px; }
 
   .tile, .tile .tile-inner {
     width: 57.5px;
